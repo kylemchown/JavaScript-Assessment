@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+
+</head>
+<body id="testy">
+
+<p id="output">
+	The information inputted previously was:	
+</p>
+<p id="name">
+</p>
+<p id="date">
+</p>
+<p id="email">
+</p>
+<p id="post">
+</p>
+<p id="addre">
+</p>
+
+
+<script>
+	var n = "Name: " + localStorage.getItem("nam");
+	var namenode = document.createTextNode(n);
+	document.getElementById("name").appendChild(namenode);
+	
+	var d = "Date: " + localStorage.getItem("dat");
+	var datenode = document.createTextNode(d);
+	document.getElementById("date").appendChild(datenode);
+	
+	var e = "Email: " + localStorage.getItem("ema");
+	var emailnode = document.createTextNode(e);
+	document.getElementById("email").appendChild(emailnode);
+	
+	var p = "Postcode: " + localStorage.getItem("post")
+	var postnode = document.createTextNode(p);
+	document.getElementById("post").appendChild(postnode);
+	
+	var a = "Address: " + localStorage.getItem("addre");
+	var addrenode = document.createTextNode(a);
+	document.getElementById("addre").appendChild(addrenode);
+</script>
+
+
+
+</body>
+</html>

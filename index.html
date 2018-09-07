@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+	
+	.dropdown {
+    float: left;
+    overflow: hidden;
+}
+	
+    </style>
+	
+	<title>Main Page</title>
+</head>
+<body>
+
+<div class="dropdown" onmouseleave="toggleVis2()" style="width: 100px; display">
+  <p class="dropbtn" onmouseover="toggleVis()">JSON</p>
+  <div id="JSONdrop" class="dropdown-content" style="visibility: hidden" style="width: 150px">
+  
+    <a id="coltest" href="trainers.html" onmouseover="coltest('coltest')" onmouseleave="removecol('coltest')">JSON Manipulation</a><br>
+  </div>
+</div>
+
+<div class="dropdown" onmouseleave="toggleVisform2()" style="width: 100px">
+  <p class="dropbtn" onmouseover="toggleVisform()">Form</p>
+  <div id="Formdrop" class="dropdown-content" style="visibility: hidden">
+    <a href="Entry Form.html" id="ef" onmouseover="coltest('ef')" onmouseleave="removecol('ef')">Entry Form</a><br>
+    <a href="Form Data.html" id="fd" onmouseover="coltest('fd')" onmouseleave="removecol('fd')">Form Data</a><br>
+  </div>
+</div>
+
+
+<script >
+function toggleVis(){
+	document.getElementById("JSONdrop").style.visibility = "visible";
+}
+function toggleVis2(){
+	document.getElementById("JSONdrop").style.visibility = "hidden";
+}
+
+function toggleVisform(){
+	document.getElementById("Formdrop").style.visibility = "visible";
+}
+function toggleVisform2(){
+	document.getElementById("Formdrop").style.visibility = "hidden";
+}
+
+
+
+function coltest(str){
+	document.getElementById(str).style.backgroundColor = "lightblue";
+	var textnode = document.createTextNode("*");
+	document.getElementById(str).appendChild(textnode);
+}
+
+function removecol(str){
+	document.getElementById(str).style.backgroundColor = "white";
+	var parent = document.getElementById(str);
+			parent.removeChild(parent.lastChild);
+				
+}
+
+
+</script>
+	
+<script>
+
+</script>
+	
+<script>
+</script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+
+th.solid {border-style: solid;}
+td.solid {border-style: solid; border-width: 1px;}
+table {
+    border-collapse: collapse;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+    </style>
+</head>
+<body>
+
+<input 	id = "box1"
+			type="text"
+			placeholder="Enter name"
+			alt="Name"/><br>
+
+<input type="button" onclick="please(meminfo)" value="Search by Name" /><br>
+<input type="button" onclick="skillsearch()" value="Search by Power" /><br>
+<input type="button" onclick="please(infotable)" value="Make Table" /><br>
+
+<table id="tt">
+
+</table>
+
+
+    <script src="data.js"></script>
+	<script>
+	function please(meth){
+	document.getElementById("tt").innerHTML = "";
+		document.getElementById("output info").innerHTML = "";
+		var pas = document.getElementById("box1").value;
+		found = false;
+		for (i=0; i<data.members.length; i++){
+			if (pas == data.members[i].name){
+				meth(i);
+				found = true;
+			}
+		}
+		if (found == false){
+			document.getElementById("output info").innerHTML = "";
+		}
+		
+	}
+	
+	function skillsearch(){
+	document.getElementById("tt").innerHTML = "";
+	document.getElementById("output info").innerHTML = "";
+var pas = document.getElementById("box1").value;
+
+found = false
+
+for (i=0; i<data.members.length; i++){
+	for (j=0; j<data.members[i].skills.length; j++){
+		if (pas == data.members[i].skills[j]){
+			var tes = document.createElement("p");
+			var nom = data.members[i].name;
+			var textnode = document.createTextNode(nom);
+			tes.appendChild(textnode);
+			document.getElementById("output info").appendChild(tes);
+			found = true
+		}
+	}
+	if(found == false){
+	document.getElementById("outputName").innerHTML = "";
+	
+	var textnode = document.createTextNode("There is no hero with that power");
+	document.getElementById("outputName").appendChild(textnode);
+	}
+	}
+}
+	
+	
+	function meminfo(i){
+		document.getElementById("output info").innerHTML = "";
+		document.getElementById("tt").innerHTML = "";
+		
+			var p1 = document.createElement("p");
+			var nom = data.members[i].name;
+			var textnode = document.createTextNode("Name: " + nom + "\n");
+			p1.appendChild(textnode);
+			document.getElementById("output info").appendChild(p1);
+			
+			var p2 = document.createElement("p");
+			var age = data.members[i].age;
+			var textnode = document.createTextNode("Age: " + age + "\n");
+			p2.appendChild(textnode);
+			document.getElementById("output info").appendChild(p2);
+			
+			var p3 = document.createElement("p");
+			var secret = data.members[i].secretIdentity;
+			var textnode = document.createTextNode("Secret Identity: " + secret + "\n");
+			p3.appendChild(textnode);
+			document.getElementById("output info").appendChild(p3);
+			
+			for (j=0; j<data.members[i].skills.length; j++){
+				var tes = document.createElement("p");
+				var power = data.members[i].skills[j];
+				var textnode = document.createTextNode("Skill: " + power + "\n");
+				tes.appendChild(textnode);
+				document.getElementById("output info").appendChild(tes);
+			}
+	}
+	
+	
+		
+	function infotable(i){
+		document.getElementById("output info").innerHTML = "";
+		document.getElementById("tt").innerHTML = "";
+		
+		
+		var r = document.createElement("tr");
+		var f = document.createElement("td");
+		f.setAttribute("class", "solid");
+		f.innerHTML = "Name";
+		var s = document.createElement("td");
+		var nom = data.members[i].name;
+		s.innerHTML = nom;
+		r.appendChild(f);
+		r.appendChild(s);
+		document.getElementById("tt").appendChild(r);
+		
+		var r = document.createElement("tr");
+		var f = document.createElement("td");
+		f.setAttribute("class", "solid");
+		f.innerHTML = "Age";
+		var s = document.createElement("td");
+		var nom = data.members[i].age;
+		s.innerHTML = nom;
+		r.appendChild(f);
+		r.appendChild(s);
+		document.getElementById("tt").appendChild(r);
+		
+		var r = document.createElement("tr");
+		var f = document.createElement("td");
+		f.setAttribute("class", "solid");
+		f.innerHTML = "Secret Identity";
+		var s = document.createElement("td");
+		var nom = data.members[i].secretIdentity;
+		s.innerHTML = nom;
+		r.appendChild(f);
+		r.appendChild(s);
+		document.getElementById("tt").appendChild(r);
+		
+		for (j=0; j<data.members[i].skills.length; j++){
+			var r = document.createElement("tr");
+			var f = document.createElement("td");
+			f.setAttribute("class", "solid");
+			f.innerHTML = "Skill";
+			var s = document.createElement("td");
+			var nom = data.members[i].skills[j];
+			s.innerHTML = nom;
+			r.appendChild(f);
+			r.appendChild(s);
+			document.getElementById("tt").appendChild(r);
+		}
+		
+	}
+	</script>
+
+	
+	
+<div id="output info">
+
+</div>	
+
+<script>
+
+</script>
+	
+<script>
+</script>
+</body>
+</html>

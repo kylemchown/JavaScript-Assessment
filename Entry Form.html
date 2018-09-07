@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+
+
+</head>
+<body>
+
+<script>
+
+
+
+
+
+function check(){
+	document.getElementById("button1").disabled = true;
+
+	var name = document.getElementById("box1").value;
+	var namecheck = /^[a-zA-Z]+$/;
+	if (name == ""){
+		//alert("Field is empty");
+		return false;
+	}
+	else if (!(name.match(namecheck))){
+		//alert("Invalid name");
+		return false;
+	}
+	var dat = document.getElementById("box2").value;
+	var datecheck = /^\d{1,2}\/\d{1,2}\/\d{4}$/;
+	if (dat == ""){
+		//alert("Field is empty");
+		return false;
+	}
+	else if (!(dat.match(datecheck))){
+		//alert("Invalid date");
+		return false;
+	}
+	var ema = document.getElementById("box3").value;
+	var emailcheck = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}$/;
+	var emailcheck2 = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6}\.[a-zA-Z]{2,6}$/
+	if (ema == ""){
+		//alert("Field is empty");
+		return false;
+	}
+	else if (!(ema.match(emailcheck))&&!(ema.match(emailcheck2))){
+		//alert("Invalid email");
+		return false;
+	}
+	var post = document.getElementById("box4").value;
+	var postcheck = /^[[a-zA-Z]{1,2}\d{1,2} \d{1,2}[a-zA-Z]{1,2}$/;
+	if (post == ""){
+		//alert("Field is empty");
+		return false;
+	}
+	else if (!(post.match(postcheck))){
+		//alert("Invalid postcode");
+		return false;
+	}
+	var addre = document.getElementById("box5").value;
+	var addrecheck = /^[a-zA-Z0-9 ]+$/;
+	if (addre == ""){
+		//alert("Field is empty");
+		return false;
+	}
+	else if (!(addre.match(addrecheck))){
+		//alert("Invalid address");
+		return false;
+	}
+	localStorage.setItem("nam",name);
+	localStorage.setItem("dat",dat);
+	localStorage.setItem("ema",ema);
+	localStorage.setItem("post",post);
+	localStorage.setItem("addre",addre);
+	
+	document.getElementById("button1").disabled = false;
+}
+	
+setInterval(check, 500);
+</script>
+
+
+
+<form onsubmit = "return check()" action="Form Data.html">
+	<input 	id = "box1"
+			type="text"
+			placeholder="Name"
+			alt="First Name"
+			required="required"></input><br>
+	<input 	id = "box2"
+			type="text"
+			placeholder="Date"
+			alt="Date"
+			required="required"
+			></input><br>
+	<input 	id = "box3"
+			type="email"
+			placeholder="Email"
+			alt="email"
+			required="required"
+			></input><br>
+		<input 	id = "box4"
+			type="text"
+			placeholder="Postcode"
+			alt="Postcode"
+			required="required"
+			></input><br>
+		<input 	id = "box5"
+			type="text"
+			placeholder="Street Address"
+			alt="Street Address"
+			required="required"
+			></input><br>
+	<input id="button1"
+		type="submit" 
+		disabled>
+</form>
+
+
+
+<script>
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
