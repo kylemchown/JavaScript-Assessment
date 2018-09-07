@@ -50,9 +50,13 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 	function skillsearch(){
 	document.getElementById("tt").innerHTML = "";
 	document.getElementById("output info").innerHTML = "";
-var pas = document.getElementById("box1").value;
-
-found = false
+		var pas = document.getElementById("box1").value;
+		var tes = document.createElement("p");
+		var textnode = document.createTextNode("The trainers with " + pas + " are:");
+		tes.appendChild(textnode);
+		document.getElementById("output info").appendChild(tes);
+		
+		found = false
 
 for (i=0; i<data.members.length; i++){
 	for (j=0; j<data.members[i].skills.length; j++){
